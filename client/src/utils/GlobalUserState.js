@@ -27,8 +27,8 @@ function reducer(state, action) {
 const UserStoreProvider = ({ value = [], ...props }) => {
 	const [state, dispatch] = useReducer(reducer, INITIAL_USER_STATE);
 
-	const login = (userId, user) => {
-		dispatch({ type: "LOGIN", data: { userId, user } });
+	const login = (isLogged, user) => {
+		dispatch({ type: "LOGIN", data: { isLogged, user } });
 	};
 
 	const logout = () => {

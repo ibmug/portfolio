@@ -7,7 +7,7 @@ import API from "../utils/API";
 const Home = (props) => {
 	return (
 		<>
-			<SignForm fn={props.fn} />
+			{/* <SignForm fn={props.fn} /> */}
 			<div>You gotta sign in bro</div>
 		</>
 	);

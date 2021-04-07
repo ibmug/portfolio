@@ -8,16 +8,45 @@ const router = require("express").Router();
 //Should match "/api/users/..."
 router.route("/signup").post(User.create);
 
-router
-	.route("/login")
-	.post(passport.authenticate("local"), function (req, res) {
-		console.log("login " + req.body);
-		res.status(202).json({
-			_id: req.user._id,
-			username: req.user.username,
-			email: req.user.email,
-		});
-	});
+router.route("/login").post(function (req, res, next) {
+	passport.authenticate("local", function (err, user, info) {
+		console.log("Attempting to Log:");
+		console.log(user);
+		if (err) {
+			//return next(err); // will generate a 500 error
+			return res.send({ success: false, message: "authentication failed" });
+		}
+		// Generate a JSON response reflecting authentication status
+		if (!user) {
+			return res.send({ success: false, message: "authentication failed" });
+		}
+		// ***********************************************************************
+		// "Note that when using a custom callback, it becomes the application's
+		// responsibility to establish a session (by calling req.login()) and send
+		// a response."
+		// Source: http://passportjs.org/docs
+		// ***********************************************************************
+
+		if (user) {
+			req.login(user, (loginErr) => {
+				if (loginErr) {
+					//return next (loginErr);
+					return next({ success: false, message: loginErr });
+				}
+			});
+			return res.send({ success: true, message: "authentication succeeded" });
+		}
+	})(req, res, next);
+});
+// function (req, res) {
+// 	console.log("login " + req.body);
+// 	res.status(202).json({
+// 		_id: req.user._id,
+// 		username: req.user.username,
+// 		email: req.user.email,
+// 	});
+// }
+// );
 
 router.route("/login").post(function (req, res) {
 	console.log("posting: " + req.body);
