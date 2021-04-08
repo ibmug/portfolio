@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { useUserStoreContext } from "../../utils/GlobalUserState";
 import { ReactComponent as CatSVG } from "./cat_Icon.svg";
+import "./styles.css";
 
 function SignForm(props) {
 	const [user, setUser] = useState("");
 	const [password, setPass] = useState("");
 	const { login } = useUserStoreContext();
-
 	const [loggedIn, setLogged] = useState(false);
+	const history = useHistory();
 	function handleUser(event) {
 		// Getting the value and name of the input which triggered the change
 		const name = event.target.value;
@@ -37,16 +39,16 @@ function SignForm(props) {
 		console.log(response);
 		if (response.data.success) {
 			login(response.data.success);
-			//setLogged(response.data.success);
+			setLogged(response.data.success);
 			console.log(loggedIn);
 			console.log("REDIRECTING");
-			<Redirect
-				to={{
-					pathname: "/about",
-					//	search: "?utm=your+face",
-					//state: { referrer: currentLocation },
-				}}
-			></Redirect>;
+			// <Redirect
+			// 	to={{
+			// 		pathname: "/about",
+			// 		//	search: "?utm=your+face",
+			// 		//state: { referrer: currentLocation },
+			// 	}}
+			// ></Redirect>;
 		} else {
 			console.log(response.status + "\n" + response.data.message);
 		}
@@ -55,13 +57,7 @@ function SignForm(props) {
 	function handleSignup(event) {
 		event.preventDefault();
 		console.log("redirecting");
-		<Redirect
-			to={{
-				pathname: "/signup",
-				//	search: "?utm=your+face",
-				//state: { referrer: currentLocation },
-			}}
-		></Redirect>;
+		history.push("/signup");
 	}
 
 	function handleFormSubmit(event) {
@@ -76,9 +72,9 @@ function SignForm(props) {
 
 	return (
 		<div className="col-6">
-			{login ? (
+			{loggedIn ? (
 				<span className="thumbnail">
-					<CatSVG />
+					<CatSVG className="icon" />
 				</span>
 			) : (
 				<div className="form-group">

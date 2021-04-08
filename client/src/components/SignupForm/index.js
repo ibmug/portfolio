@@ -1,20 +1,41 @@
 import React, { useState } from "react";
 import Row from "./../Row";
 import Col from "./../Col";
+import API from "./../../utils/API";
+
+import { store } from "react-notifications-component";
+import { useHistory } from "react-router-dom";
+
 const SignupForm = (props) => {
 	const [user, setUser] = useState("");
 	const [password, setPass] = useState("");
 	const [email, setEmail] = useState("");
+	const history = useHistory();
 
-	function handleFormSubmit(event) {
+	const handleFormSubmit = async (event) => {
 		// Preventing the default behavior of the form submit (which is to refresh the page)
 		event.preventDefault();
 
 		//validateLogin(user, password);
 		// Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
 		//alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-		console.log("Clicking Submit");
-	}
+		const response = await API.createUser(user, password, email);
+
+		store.addNotification({
+			title: "Wonderful!",
+			message: response.data.message,
+			type: "success",
+			insert: "top",
+			container: "top-right",
+			animationIn: ["animate__animated", "animate__fadeIn"],
+			animationOut: ["animate__animated", "animate__fadeOut"],
+			dismiss: {
+				duration: 5000,
+				onScreen: false,
+			},
+		});
+		history.push("/");
+	};
 
 	function handleEmail(event) {
 		const email = event.target.value;
