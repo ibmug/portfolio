@@ -3,40 +3,38 @@ import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import backgroundImage from "../utils/images/banner.png";
 
 function About() {
-  return (
-    <div>
-      <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
-        <h1>Ibmug</h1>
-        <h2>Return</h2>
-      </Hero>
-      <Container style={{ marginTop: 30 }}>
-        <Row>
-          <Col size="md-12">
-            <h1>Latest News!</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc aliquet diam tortor, id
-              consequat mauris ullamcorper eu. Orci varius natoque penatibus et magnis dis
-              parturient montes, nascetur ridiculus mus. Pellentesque et dui id justo finibus
-              sollicitudin at et metus. Ut feugiat tellus nec metus commodo, sed suscipit nisi
-              gravida. Duis eget vestibulum quam, ut porttitor sem. Donec sagittis mi sollicitudin
-              turpis semper, et interdum risus lobortis. Vestibulum suscipit nunc non egestas
-              tristique. Proin hendrerit efficitur malesuada. Mauris lorem urna, sodales accumsan
-              quam non, tristique tempor erat. Nullam non sem facilisis, tempus tortor sit amet,
-              volutpat nisl. Ut et turpis non nunc maximus mollis a vitae tortor. Pellentesque
-              mattis risus ac quam laoreet cursus. Praesent suscipit orci neque, vestibulum
-              tincidunt augue tincidunt non. Duis consequat mattis tortor vitae mattis.
-            </p>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+	// const mediaObj = {
+	//     text: ["Streams ","Music ","Instagram ","Git ","LinkedIn "],
+	//     url: ["https://twitch.tv/ibmug", "https://soundcloud.com/ibmug","https://www.instagram.com/ibmug/","https://github.com/ibmug","https://linkedin.com/in/rodrigosv8"],
+	//     class:["fab fa-twitch","fab fa-soundcloud","fab fa-instagram","fab fa-github","fab fa-linkedin"]
+	// };
+
+	return (
+		<div>
+			<Hero backgroundImage={backgroundImage}>
+				<h1>Ibmug</h1>
+				<h2></h2>
+			</Hero>
+			<Container style={{ marginTop: 30 }}>
+				<Row>
+					<Col size="md-12">
+						<h1>Latest News!</h1>
+					</Col>
+				</Row>
+				<Row>
+					<Col size="md-12">
+						<p>
+							This website has information on me and stuff I've done or am
+							currently working on.
+						</p>
+					</Col>
+				</Row>
+			</Container>
+		</div>
+	);
 }
 
 export default About;

@@ -2,6 +2,9 @@ import React from "react";
 import Home from "../../pages/Home";
 import About from "../../pages/About";
 import Signup from "../../pages/Signup";
+import Contact from "../../pages/Contact";
+import Work from "../../pages/Work";
+import Learn from "../../pages/Learn";
 
 import {
 	Redirect,
@@ -25,21 +28,27 @@ function Wrapper(props) {
 				<Nav />
 				<Switch>
 					<Route exact path="/">
-						{isLogged ? <Redirect to="/about" /> : main}
+						{isLogged ? <Redirect to="/home" /> : main}
 					</Route>
 
-					<Route exact path="/index">
-						{isLogged ? <Home></Home> : <Redirect to="/" />}
+					<Route exact path="/home">
+						<Home></Home>
 					</Route>
 
 					<Route exact path="/about">
-						{isLogged ? <About></About> : <Redirect to="/" />}
+						{isLogged ? <About></About> : <Redirect to="/signup" />}
 					</Route>
 					<Route exact path="/signup">
 						<Signup></Signup>
 					</Route>
 					<Route exact path="/learn">
-						{isLogged ? <Redirect to="/learn" /> : <Redirect to="/signup" />}
+						{isLogged ? <Learn /> : <Redirect to="/signup" />}
+					</Route>
+					<Route exact path="/work">
+						{isLogged ? <Work /> : <Redirect to="/signup" />}
+					</Route>
+					<Route exact path="/contact">
+						{isLogged ? <Contact /> : <Redirect to="/signup" />}
 					</Route>
 				</Switch>
 			</Router>

@@ -11,10 +11,10 @@ function Nav() {
 			</a> */}
 			{/* <Link to="/index"> Some name</Link> */}
 			<div className="anchor">
-				<NavItem text="Read.ME "></NavItem>
-				<NavItem text="WORK and MEDIA"></NavItem>
-				<NavItem text="Learn"></NavItem>
-				<NavItem text="Contact"></NavItem>
+				<NavItem text="Read.ME " link="about"></NavItem>
+				<NavItem text="WORK and MEDIA" link="work"></NavItem>
+				<NavItem text="Learn" link="learn"></NavItem>
+				<NavItem text="Contact" link="contact"></NavItem>
 				<SignForm />
 			</div>
 		</nav>

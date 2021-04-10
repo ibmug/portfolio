@@ -12,6 +12,11 @@ function SignForm(props) {
 	const { login } = useUserStoreContext();
 	const [loggedIn, setLogged] = useState(false);
 	const history = useHistory();
+
+	////
+	/// https://medium.com/@OllyD/persistent-state-using-react-hooks-context-no-redux-17cf39da8814////
+	////http://www.passportjs.org/docs/configure/
+
 	function handleUser(event) {
 		// Getting the value and name of the input which triggered the change
 		const name = event.target.value;
@@ -35,6 +40,7 @@ function SignForm(props) {
 
 	const validateLogin = async (us, pass) => {
 		const response = await API.login(us, pass);
+
 		//const data = JSON.parse(response.data);
 		console.log(response);
 		if (response.data.success) {

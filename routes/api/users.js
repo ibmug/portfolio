@@ -38,18 +38,11 @@ router.route("/login").post(function (req, res, next) {
 		}
 	})(req, res, next);
 });
-// function (req, res) {
-// 	console.log("login " + req.body);
-// 	res.status(202).json({
-// 		_id: req.user._id,
-// 		username: req.user.username,
-// 		email: req.user.email,
-// 	});
-// }
-// );
 
-router.route("/login").post(function (req, res) {
-	console.log("posting: " + req.body);
+router.route("/user").get(function (req, res) {
+	if (req.user) {
+		return res.send({ user: req.user });
+	}
 });
 
 // router.route("/")

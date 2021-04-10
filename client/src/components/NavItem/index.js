@@ -4,7 +4,7 @@ import "./styles.css";
 function NavItem(props) {
 	return (
 		<div className="col">
-			<Link className="link-info" to={"/" + props.text}>
+			<Link className="link-info" to={"/" + props.link}>
 				{props.text}
 			</Link>
 		</div>
