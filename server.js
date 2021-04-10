@@ -7,7 +7,7 @@ const passport = require("./config/passport");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 var fs = require("fs");
-var morgan = require("morgan");
+// var morgan = require("morgan");
 var path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,11 +23,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 ///Set up logging:
-var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-	flags: "a",
-});
+// var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
+// 	flags: "a",
+// });
+
 // setup the logger
-app.use(morgan("combined", { stream: accessLogStream }));
+// app.use(morgan("combined", { stream: accessLogStream }));
 
 //Set a mongo connection.
 const uri =
