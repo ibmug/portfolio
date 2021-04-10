@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Ibmug",
+  "version": "1.0.1",
+  "description": "Hi",
   "main": "server.js",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
