@@ -1,5 +1,8 @@
 import React from "react";
+import Container from "../components/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Hero from "../components/Hero";
+import backgroundImage from "../utils/images/banner.png";
 
 import {
 	FaGithub,
@@ -42,17 +45,25 @@ const mediaObj = [
 
 const mediaItems = mediaObj.map((media) => (
 	<li>
-		{media.text}
-		<a href={media.url}>{media.icon}</a>
+		<a href={media.url} target="_blank">
+			{" "}
+			{media.text}
+			{media.icon}
+		</a>
 	</li>
 ));
 
 const Home = (props) => {
 	return (
 		<>
-			{/* <SignForm fn={props.fn} /> */}
-			<div>You gotta sign in bro</div>
-			<ul>{mediaItems}</ul>
+			<Hero backgroundImage={backgroundImage}>
+				<h1>Ibmug</h1>
+				<h2>Create an account to see some more!</h2>
+			</Hero>
+			<Container>
+				<div>Find me on the following platforms:</div>
+				<ul>{mediaItems}</ul>
+			</Container>
 		</>
 	);
 };

@@ -11,6 +11,8 @@ const Learn = (props) => {
 	return (
 		<>
 			<Container>
+				<h1>Aprende a codificar</h1>
+				<h2>Aun esta en construccion pero subire semanalmente un update</h2>
 				<Row>Cuando se habla de codigo...somos como Jon Snow..</Row>
 				<Row>Se requieren dos cosas:</Row>
 				<Row>

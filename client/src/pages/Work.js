@@ -11,22 +11,16 @@ const images = [
 		text: "Still under construction...",
 	},
 	{
-		path: "https://ibmug.github.io/proyecto_1/",
-		img: "buscaCovid.jpg",
-		title: "Covid Searcher in Mexico",
-		text: "This was done for a learning proyect.",
-	},
-	{
-		path: "https://ibmug.github.io/simpleDaySchedule/",
-		img: "simpleSchedule.JPG",
-		title: "Simple Scheduler",
-		text: "A simple scheduler, needs a lot of refining..",
-	},
-	{
 		path: "https://ibmug-emed.herokuapp.com/",
 		img: "emed.JPG",
 		title: "eMed",
 		text: "Interface for Clinics",
+	},
+	{
+		path: "https://ibmug.github.io/proyecto_1/",
+		img: "buscaCovid.jpg",
+		title: "Covid Searcher in Mexico",
+		text: "This was done for a learning proyect.",
 	},
 	{
 		path: "https://imbug-expenses.herokuapp.com/",
@@ -39,6 +33,12 @@ const images = [
 		img: "Fitness_track_poster.JPG",
 		title: "Fitness Bragger",
 		text: "Easy post to DB form",
+	},
+	{
+		path: "https://ibmug.github.io/simpleDaySchedule/",
+		img: "simpleSchedule.JPG",
+		title: "Simple Scheduler",
+		text: "A simple scheduler, needs a lot of refining..",
 	},
 ];
 
