@@ -1,7 +1,13 @@
-import Card from "../components/Card";
-import Col from "../components/Col";
-import Row from "../components/Row";
+import React from "react";
 import Container from "../components/Container";
+
+import {
+	FaGithub,
+	FaInstagram,
+	FaLinkedin,
+	FaSoundcloud,
+	FaTwitch,
+} from "react-icons/fa";
 
 const images = [
 	{
@@ -29,6 +35,12 @@ const images = [
 		text: "Simple yet effective Tracker",
 	},
 	{
+		path: "https://ibmug-notetaker.herokuapp.com/",
+		img: "noteTaker.JPG",
+		title: "Note taker!",
+		text: "Easy post to track notes...",
+	},
+	{
 		path: "https://medidor-ejercicio.herokuapp.com/",
 		img: "Fitness_track_poster.JPG",
 		title: "Fitness Bragger",
@@ -42,25 +54,53 @@ const images = [
 	},
 ];
 
-const workItems = images.map((image) => (
-	<Card
-		path={image.paths}
-		img={"./assets/img/" + image.img}
-		title={image.title}
-		text={image.text}
-	/>
+const mediaObj = [
+	{
+		text: "Streams",
+		url: "https://twitch.tv/ibmug",
+		icon: FaTwitch,
+	},
+	{
+		text: "Music",
+		url: "https://soundcloud.com/ibmug",
+		icon: <FaSoundcloud />,
+	},
+	{
+		text: "Instagram",
+		url: "https://www.instagram.com/ibmug/",
+		icon: <FaInstagram />,
+	},
+	{
+		text: "Git",
+		url: "https://github.com/ibmug",
+		icon: <FaGithub />,
+	},
+	{
+		text: "LinkedIn",
+		url: "https://linkedin.com/in/rodrigosv8",
+		icon: <FaLinkedin />,
+	},
+];
+
+const mediaItems = mediaObj.map((media) => (
+	<li>
+		<a href={media.url} target="_blank">
+			{" "}
+			{media.text}
+			{media.icon}
+		</a>
+	</li>
 ));
 
-const Work = (props) => {
+const Media = (props) => {
 	return (
 		<>
-			{/* <SignForm fn={props.fn} /> */}
 			<Container>
-				<p>Behold!...My Stuff...</p>
-				<Row>{workItems}</Row>
+				<div>Find me on the following platforms:</div>
+				<ul>{mediaItems}</ul>
 			</Container>
 		</>
 	);
 };
 
-export default Work;
+export default Media;

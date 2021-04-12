@@ -3,7 +3,7 @@ import Home from "../../pages/Home";
 import About from "../../pages/About";
 import Signup from "../../pages/Signup";
 import Contact from "../../pages/Contact";
-import Work from "../../pages/Work";
+import Media from "../../pages/Media";
 import Learn from "../../pages/Learn";
 
 import {
@@ -44,8 +44,8 @@ function Wrapper(props) {
 					<Route exact path="/learn">
 						{isLogged ? <Learn /> : <Redirect to="/signup" />}
 					</Route>
-					<Route exact path="/work">
-						{isLogged ? <Work /> : <Redirect to="/signup" />}
+					<Route exact path="/media">
+						{isLogged ? <Media /> : <Redirect to="/signup" />}
 					</Route>
 					<Route exact path="/contact">
 						{isLogged ? <Contact /> : <Redirect to="/signup" />}
