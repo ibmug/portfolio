@@ -15,10 +15,15 @@ module.exports = {
 	},
 	create: function (req, res) {
 		console.log(req.body);
+		let username = "Guest";
+		if (req.user) {
+			username = req.user.username;
+		}
 		Post.create({
+			from: req.body.from,
 			title: req.body.title,
 			description: req.body.description,
-			user: req.user.username,
+			user: username,
 			//Maybe get location and other stuff..
 		})
 			.then((dbModel) => res.json({ message: "Creation Succesful!" }))
