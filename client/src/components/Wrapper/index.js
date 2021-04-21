@@ -48,7 +48,7 @@ function Wrapper(props) {
 						{isLogged ? <Media /> : <Redirect to="/signup" />}
 					</Route>
 					<Route exact path="/contact">
-						{isLogged ? <Contact /> : <Redirect to="/signup" />}
+						<Contact />
 					</Route>
 				</Switch>
 			</Router>

@@ -20,4 +20,11 @@ export default {
 			password: password,
 		});
 	},
+	createPost: function (from, title, description) {
+		return axios.post("/api/post/add", {
+			from: from,
+			title: title,
+			description: description,
+		});
+	},
 };
