@@ -42,11 +42,11 @@ function SignForm(props) {
 		const response = await API.login(us, pass);
 
 		//const data = JSON.parse(response.data);
-		console.log(response);
+		//console.log(response);
 		if (response.data.success) {
 			login(response.data.success);
 			setLogged(response.data.success);
-			console.log(loggedIn);
+			//console.log(loggedIn);
 			console.log("REDIRECTING");
 			// <Redirect
 			// 	to={{
