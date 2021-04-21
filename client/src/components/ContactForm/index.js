@@ -44,7 +44,7 @@ const ContactForm = (props) => {
 
 	function handleDescription(event) {
 		const description = event.target.value;
-		console.log(event.target.name);
+		//console.log(event.target.name);
 		//We could do a generic handler to handle each set..
 		//still thinking how that would be without using a switch..
 		setDescription(description);
